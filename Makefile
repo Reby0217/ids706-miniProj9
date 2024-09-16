@@ -22,12 +22,18 @@ coverage:
 	@echo "Open the coverage report at: htmlcov/index.html"
     
 # Lint the source code and tests
+# lint:
+# 	. venv/bin/activate && ruff check src tests
+
 lint:
-	. venv/bin/activate && ruff check src tests
+	ruff check src tests
 
 # Format all Python files
+# format:
+# 	. venv/bin/activate && black .
+
 format:
-	. venv/bin/activate && black .
+	black .
 
 # Clean the virtual environment
 clean:
