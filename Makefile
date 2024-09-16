@@ -9,40 +9,33 @@ setup:
 	. venv/bin/activate && pip install --upgrade pip
 
 # Run tests within the virtual environment
+# test:
+# 	. venv/bin/activate && PYTHONPATH=. pytest 
+# 	. venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
+
 test:
-	. venv/bin/activate && PYTHONPATH=. pytest
+	@echo "Running tests in tests/test_lib.py..." 
+	@echo "Running tests in tests/test_script.py..." 
+	. venv/bin/activate && PYTHONPATH=. pytest tests/ -q
+	. venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
 
 
+# Generate an HTML coverage report to inspect coverage in detail
+coverage:
+	. venv/bin/activate && PYTHONPATH=src pytest --cov=src --cov-report=html tests/
+	@echo "Open the coverage report at: htmlcov/index.html"
+    
 # Lint the source code and tests
 lint:
-	. venv/bin/activate && flake8 src tests
+	. venv/bin/activate && ruff check src tests
 
 # Format all Python files
 format:
 	. venv/bin/activate && black .
 
-# Lint using pylint, disable specific checks for speed, and use ruff if desired
-pylint:
-	. venv/bin/activate && pylint --disable=R,C --disable=unnecessary-pass --ignore-patterns=test_.*?py *.py
-
-# Lint using ruff, which is faster than pylint (uncomment if using ruff)
-ruff:
-	. venv/bin/activate && ruff check .
-
-# Run container linting on Dockerfile
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
-
 # Clean the virtual environment
 clean:
 	rm -rf venv
 
-# Format and lint code
-refactor: format lint
-
-# Deploy the application (replace with actual deploy commands)
-deploy:
-	@echo "Deploy the app"
-
-# Run all major tasks: install, lint, test, format, and deploy
-all: install setup lint test format deploy
+# Run all major tasks: install, setup, lint, test, format
+all: install setup lint test format
