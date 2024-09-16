@@ -1,6 +1,7 @@
 .pytest_cache/
 .ruff_cache/
 .htmlcov/
+.coverage
 .idea/
 .DS_Store
 **/__pycache__/
