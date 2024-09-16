@@ -1,160 +1,129 @@
 # IDS706 Individual Project #1: Continuous Integration using Gitlab Actions of Python Data Science Project
-
-
-[![Install](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml)
-
-[![Lint](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml)
-
-[![Format](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml)
-
-[![Tests](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml)
+This project demonstrates the implementation of Continuous Integration (CI) using GitHub Actions for a Python-based Data Science project. It focuses on automating testing, code formatting, linting, and dependency management. The project performs descriptive statistics analysis using a dataset of the 1000 wealthiest people globally.
 
 
 ---
 
-### Deliverables:
-- Docker build command
-![Docker](screenshots/Docker.png)
+## Continuous Integration with GitHub Actions
+[![Install](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml)
+[![Lint](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml)
+[![Format](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml)
+[![Tests](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml)
 
-- **Version Control Repository**: The project is hosted publicly at [GitLab - IDS706 Mini Project 1](https://gitlab.com/kl478/ids706-miniproj1).
-- **CI/CD Pipeline**: The CI/CD pipeline is functional, and the latest run can be viewed at [GitLab CI/CD Pipelines](https://gitlab.com/kl478/ids706-miniproj1/-/pipelines).
 
-## Project Overview
+## Project Structure
 
-### Key Components:
-- **.devcontainer**: Contains configuration files (`devcontainer.json` and `Dockerfile`) for setting up a consistent, isolated development environment using Visual Studio Code and Docker.
-- **Makefile**: Facilitates common development tasks such as environment setup, testing, and linting through simple command-line entries.
-- **CI/CD**: The continuous integration/continuous deployment pipeline is defined in the `.gitlab-ci.yml` file. It automates the setup, linting, and testing phases for each commit using GitLab CI/CD, ensuring that code quality is maintained consistently.
-- **README.md**: Provides detailed instructions for setting up, using, and contributing to the project.
+- **Jupyter Notebook** (`src/individual_proj_1.ipynb`):
+  - Performs descriptive statistical analysis using Pandas.
+  - Tested using the `nbval` plugin for `pytest`.
+  
+- **Python Script** (`src/cli.py`):
+  - Reads the dataset, computes descriptive statistics, and groups the data by industry.
+  
+- **Shared Library** (`src/lib.py`):
+  - Contains reusable functions for data validation, reading data, calculating descriptive statistics, plotting, and calculating skewness/kurtosis.
 
-### Requirements:
+- **Test Scripts**:
+  - `tests/test_lib.py`: Contains unit tests for the shared library functions.
+  - `tests/test_script.py`: Contains tests for the CLI functions.
+  
+- **Dataset** (`src/Top_1000_wealthiest_people.csv`):
+  - A CSV file containing data about the 1000 wealthiest people, including their name, country, industry, net worth (in billions), and company.
+  - **Dataset source**: [Top 1000 Wealthiest People in the World - Kaggle](https://www.kaggle.com/datasets/muhammadehsan02/top-1000-wealthiest-people-in-the-world)
+
+
+## Makefile
+
+The project uses a `Makefile` to streamline development tasks, including testing, formatting, linting, and installing dependencies. Key Makefile commands:
+
+- **Test**: Runs tests for the notebook, script, and library.
+  ```bash
+  make test
+  ```
+  
+- **Format**: Formats all Python files using `black`.
+  ```bash
+  make format
+  ```
+
+- **Lint**: Checks the code quality using `Ruff`.
+  ```bash
+  make lint
+  ```
+
+- **Install**: Installs all required dependencies from `requirements.txt`.
+  ```bash
+  make install
+  ```
+
+- **All**: Runs all major tasks (`install`, `setup`, `lint`, `test`, and `format`) in one command.
+  ```bash
+  make all
+  ```
+
+## Getting Started
+
+### Prerequisites
+
 - Python 3.9+
-- Docker (for the development container setup)
-- Git (for version control)
+- `pip` for managing dependencies
 
-## Project Setup Instructions
+### Installation
 
-To set up the project and start development, follow these steps:
+1. Clone the repository:
 
-### 1. Clone the Repository
+   ```bash
+   git clone https://github.com/Reby0217/ids706-indvidual1.git
+   cd ids706-indvidual1
+   ```
 
-Clone the repository to your local machine:
+2. Create and activate a virtual environment:
 
-```bash
-git clone https://gitlab.com/kl478/ids706-miniproj1.git
-cd ids706-miniproj1
-```
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate 
+   ```
 
-### 2. Set Up Virtual Environment (Optional for Local Development)
+3. Install dependencies:
 
-If you're working locally without Docker, create and activate a virtual environment for dependency management:
+   ```bash
+   make install
+   ```
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+### Running Tests
 
-### 3. Install Required Packages
-
-Install the dependencies listed in `requirements.txt`:
-
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### 4. Build the Docker Image
-
-To create the development container using Docker, run the following command:
+To run all tests (for both the notebook and the scripts):
 
 ```bash
-docker build -t mini1_container -f .devcontainer/Dockerfile .
+make test
 ```
 
-This will build the Docker image using the `Dockerfile` located in the `.devcontainer` directory.
+### Linting and Formatting
 
-### 5. Run the Docker Container
-
-After building the image, run the container using the following command:
-
-```bash
-docker run -it mini1_container
-```
-
-This will start the container interactively, and you can now use the container as your development environment.
-
-## Usage Instructions
-
-### Running the Application in the Docker Container
-
-Once inside the Docker container, you can execute your Python scripts or run tests. For example, to run the `cli.py` script:
-
-```bash
-python src/cli.py
-```
-
-To run tests inside the container:
-
-```bash
-pytest tests/
-```
-
-### Running Locally Without Docker (Optional)
-
-If you're not using Docker, after setting up the virtual environment and installing the dependencies, you can run the application or tests using the same commands:
-
-```bash
-python src/cli.py
-pytest tests/
-```
-
-### Linting Code
-
-To lint your code using `flake8` (or any configured linter), run the following command inside the Docker container or locally (if you’ve set up the environment):
-
-```bash
-make lint
-```
-
-### Formatting Code
-
-To format your code using `black`, you can run:
+To format the code using `black`, run:
 
 ```bash
 make format
 ```
 
-### Cleaning the Environment
-
-If you need to clean up the environment (e.g., remove the virtual environment):
+To lint the code using `Ruff`, run:
 
 ```bash
-make clean
+make lint
 ```
 
-## CI/CD Pipeline Setup on GitLab
+## Descriptive Statistics Example
 
-This project uses GitLab CI/CD for automated testing and linting. The CI/CD pipeline is defined in the `.gitlab-ci.yml` file, running in three stages: `setup`, `lint`, and `test`.
+Below is an example of how to perform descriptive statistics on the dataset using the shared library functions in `src/lib.py`:
 
-### Steps to Set Up CI/CD on GitLab
+```python
+import pandas as pd
+from src.lib import read_data, get_descriptive_statistics
 
-1. **Ensure `.gitlab-ci.yml` is in Your Repository**: It should be in the root directory of the project.
-2. **Push Your Changes to GitLab**: 
+# Load the dataset
+df = read_data('src/Top_1000_wealthiest_people.csv')
 
-```bash
-git add .gitlab-ci.yml
-git commit -m "Add GitLab CI/CD pipeline configuration"
-git push origin main
+# Perform descriptive statistics
+stats = get_descriptive_statistics(df)
+print(stats)
 ```
-
-3. **View Pipeline Status**: Navigate to **CI/CD > Pipelines** in GitLab to view the status of the pipeline runs.
-
-## Development Container Setup
-
-This project is configured with a `.devcontainer` setup for a pre-configured development environment.
-
-### Setting up the Development Container
-
-1. **Ensure Docker is Running**: Docker must be installed and running on your machine.
-2. **Open in VSCode**: 
-   - In VSCode, open the command palette (Cmd/Ctrl + Shift + P), and select `Remote-Containers: Reopen in Container`. The development container will start with all dependencies pre-installed.

@@ -15,26 +15,13 @@ test:
 	. venv/bin/activate && PYTHONPATH=. pytest tests/ -q
 	. venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
 
-# test:
-# 	@echo "Running tests in tests/test_lib.py..." 
-# 	@echo "Running tests in tests/test_script.py..." 
-# 	PYTHONPATH=. pytest tests/ -q
-# 	pytest --nbval src/individual_proj_1.ipynb
-
-    
 # Lint the source code and tests
 lint:
 	. venv/bin/activate && ruff check src tests
 
-# lint:
-# 	ruff check src tests
-
 # Format all Python files
 format:
 	. venv/bin/activate && black .
-
-# format:
-# 	black .
 
 # Clean the virtual environment
 clean:
