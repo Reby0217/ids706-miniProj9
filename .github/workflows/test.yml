@@ -21,8 +21,19 @@ jobs:
         with:
           python-version: '3.11'
 
+      # Install Jupyter and dependencies
       - name: Install dependencies
-        run: make install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install jupyter nbval
 
+      # Install the Python kernel for Jupyter
+      - name: Install Jupyter kernel
+        run: |
+          python -m ipykernel install --user
+
+      # Run the tests
       - name: Run tests
-        run: make test
+        run: |
+          make test
