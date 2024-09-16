@@ -21,19 +21,23 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Install Jupyter and dependencies
-      - name: Install dependencies
+      # Set up virtual environment and install dependencies
+      - name: Set up virtual environment
         run: |
-          python -m pip install --upgrade pip
+          python -m venv venv
+          . venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
-          pip install jupyter nbval
+          pip install jupyter nbval ipykernel
 
       # Install the Python kernel for Jupyter
       - name: Install Jupyter kernel
         run: |
+          . venv/bin/activate
           python -m ipykernel install --user
 
-      # Run the tests
+      # Run the tests within the virtual environment
       - name: Run tests
         run: |
+          . venv/bin/activate
           make test

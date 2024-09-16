@@ -21,8 +21,15 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install black
+      # Install the dependencies and set up virtual environment
+      - name: Set up virtual environment
+        run: |
+          make setup
+          . venv/bin/activate
+          pip install black
 
+      # Run the format command within the virtual environment
       - name: Format code with Black
-        run: make format
+        run: |
+          . venv/bin/activate
+          make format
