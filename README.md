@@ -112,18 +112,16 @@ To lint the code using `Ruff`, run:
 make lint
 ```
 
-## Descriptive Statistics Example
+### Data Sample
+![Data](screenshots/head.png)
 
-Below is an example of how to perform descriptive statistics on the dataset using the shared library functions in `src/lib.py`:
+### Descriptive Statistics
+![Descriptive Stats](screenshots/descriptive_stat.png)
 
-```python
-import pandas as pd
-from src.lib import read_data, get_descriptive_statistics
+![Skewness and kurtosis](screenshots/Skewness_and_kurtosis.png)
 
-# Load the dataset
-df = read_data('src/Top_1000_wealthiest_people.csv')
+### Bar Plot: Average Net Worth by Industry
+![Bar Plot](screenshots/barplot.png)
 
-# Perform descriptive statistics
-stats = get_descriptive_statistics(df)
-print(stats)
-```
+### Box Plot: Net Worth Distribution by Industry
+![Box Plot](screenshots/boxplot.png)
