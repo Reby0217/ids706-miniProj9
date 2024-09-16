@@ -9,10 +9,6 @@ setup:
 	. venv/bin/activate && pip install --upgrade pip
 
 # Run tests within the virtual environment
-# test:
-# 	. venv/bin/activate && PYTHONPATH=. pytest 
-# 	. venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
-
 test:
 	@echo "Running tests in tests/test_lib.py..." 
 	@echo "Running tests in tests/test_script.py..." 
