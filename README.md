@@ -1,10 +1,14 @@
 # IDS706 Individual Project #1: Continuous Integration using Gitlab Actions of Python Data Science Project
 
 
-[![Install Dependencies](https://github.com/your-username/your-repo/actions/workflows/install.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/install.yml)
-[![Setup Environment](https://github.com/your-username/your-repo/actions/workflows/setup.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/setup.yml)
-[![Lint Code](https://github.com/your-username/your-repo/actions/workflows/lint.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/lint.yml)
-[![Run Tests](https://github.com/your-username/your-repo/actions/workflows/test.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/test.yml)
+[![Install](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml)
+
+[![Lint](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/lint.yml)
+
+[![Format](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/format.yml)
+
+[![Tests](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/test.yml)
+
 
 ---
 

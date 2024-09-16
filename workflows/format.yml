@@ -1,4 +1,4 @@
-name: Lint Code
+name: Format Code
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install ruff
+        run: pip install black
 
-      - name: Lint code with Ruff
-        run: make lint
+      - name: Format code with Black
+        run: make format
