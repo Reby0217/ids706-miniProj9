@@ -1,8 +1,10 @@
-# IDS706 Create Python Template
+# IDS706 Individual Project #1: Continuous Integration using Gitlab Actions of Python Data Science Project
 
-[![pipeline status](https://gitlab.com/kl478/ids706-miniproj1/badges/main/pipeline.svg)](https://gitlab.com/kl478/ids706-miniproj1/-/commits/main)
 
-This repository contains a Python project skeleton following best practices for consistency, portability, and isolation in development environments. It includes the necessary files to set up a development container, Makefile for essential tasks, and a functioning CI/CD pipeline.
+[![Install Dependencies](https://github.com/your-username/your-repo/actions/workflows/install.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/install.yml)
+[![Setup Environment](https://github.com/your-username/your-repo/actions/workflows/setup.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/setup.yml)
+[![Lint Code](https://github.com/your-username/your-repo/actions/workflows/lint.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/lint.yml)
+[![Run Tests](https://github.com/your-username/your-repo/actions/workflows/test.yml/badge.svg)](https://github.com/your-username/your-repo/actions/workflows/test.yml)
 
 ---
 
