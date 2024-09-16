@@ -1,4 +1,5 @@
 # IDS706 Individual Project #1: Continuous Integration using Gitlab Actions of Python Data Science Project
+#### [Click Here to Watch the Demo Video on YouTube](https://youtu.be/gAqFlWD23B0)
 
 ## Continuous Integration with GitHub Actions
 [![Install](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml/badge.svg)](https://github.com/Reby0217/ids706-indvidual1/actions/workflows/install.yml)
@@ -9,6 +10,7 @@
 This project demonstrates the implementation of Continuous Integration (CI) using GitHub Actions for a Python-based Data Science project. It focuses on automating testing, code formatting, linting, and dependency management. The project performs descriptive statistics analysis using a dataset of the 1000 wealthiest people globally.
 
 ---
+
 
 
 ## Project Structure
