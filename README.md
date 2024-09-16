@@ -112,16 +112,20 @@ To lint the code using `Ruff`, run:
 make lint
 ```
 
-### Data Sample
+## Data Sample
 ![Data](screenshots/head.png)
 
-### Descriptive Statistics
+## Descriptive Statistics
 ![Descriptive Stats](screenshots/descriptive_stat.png)
 
+### Skewness and Kurtosis of Net Worth Distribution
 ![Skewness and kurtosis](screenshots/Skewness_and_kurtosis.png)
 
-### Bar Plot: Average Net Worth by Industry
+### Average Net Worth by Industry
+![Avg by Industry](screenshots/industry_avg_net_worth.png)
+
+## Bar Plot: Average Net Worth by Industry
 ![Bar Plot](screenshots/barplot.png)
 
-### Box Plot: Net Worth Distribution by Industry
+## Box Plot: Net Worth Distribution by Industry
 ![Box Plot](screenshots/boxplot.png)
