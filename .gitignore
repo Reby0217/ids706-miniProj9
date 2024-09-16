@@ -1,5 +1,6 @@
 .pytest_cache/
 .ruff_cache/
+.htmlcov/
 .idea/
 .DS_Store
 **/__pycache__/
