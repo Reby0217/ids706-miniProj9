@@ -9,17 +9,18 @@ setup:
 	. venv/bin/activate && pip install --upgrade pip
 
 # Run tests within the virtual environment
+# test:
+# 	@echo "Running tests in tests/test_lib.py..." 
+# 	@echo "Running tests in tests/test_script.py..." 
+# 	# . venv/bin/activate && PYTHONPATH=. pytest tests/ -q
+# 	# . venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
+
 test:
 	@echo "Running tests in tests/test_lib.py..." 
 	@echo "Running tests in tests/test_script.py..." 
-	. venv/bin/activate && PYTHONPATH=. pytest tests/ -q
-	. venv/bin/activate && pytest --nbval src/individual_proj_1.ipynb
+	PYTHONPATH=. pytest tests/ -q
+	pytest --nbval src/individual_proj_1.ipynb
 
-
-# Generate an HTML coverage report to inspect coverage in detail
-coverage:
-	. venv/bin/activate && PYTHONPATH=src pytest --cov=src --cov-report=html tests/
-	@echo "Open the coverage report at: htmlcov/index.html"
     
 # Lint the source code and tests
 # lint:
