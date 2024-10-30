@@ -1,4 +1,4 @@
-# IDS706 Individual Project #1: Continuous Integration using Gitlab Actions of Python Data Science Project
+# IDS706 Cloud-Hosted Notebook Data Manipulation
 #### [Click Here to Watch the Demo Video on YouTube](https://youtu.be/gAqFlWD23B0)
 
 ## Continuous Integration with GitHub Actions
@@ -7,61 +7,66 @@
 [![Format](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/format.yml/badge.svg)](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/format.yml)
 [![Tests](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/test.yml/badge.svg)](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/test.yml)
 
-This project demonstrates the implementation of Continuous Integration (CI) using GitHub Actions for a Python-based Data Science project. It focuses on automating testing, code formatting, linting, and dependency management. The project performs descriptive statistics analysis using a dataset of the 1000 wealthiest people globally.
+This project demonstrates data manipulation tasks on a dataset of the 1000 wealthiest people globally, implemented in a cloud-hosted Jupyter Notebook on Google Colab. It includes a CI/CD pipeline set up with GitHub Actions to automate testing, linting, formatting, and dependency management.
 
 ---
 
+## Deliverables
+
+### Cloud-Hosted Notebook <a href="https://colab.research.google.com/github/Reby0217/ids706-miniProj9/blob/main/src/colab_proj.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
+- **Link**: [Google Colab Notebook](https://colab.research.google.com/drive/1v6sNPN7wJbcJg73e6Op9bh9jjJ_No1zH)
+
+### Documented Tasks Performed
+
+The following tasks were performed in the Google Colab notebook to analyze the dataset of the 1000 wealthiest people:
+
+1. **Environment Setup**:
+   - Uploaded `cli.py`, `lib.py`, and `Top_1000_wealthiest_people.csv` to the Colab environment. This allows for immediate access to the dataset and custom functions without needing Google Drive.
+   - Imported essential libraries and custom functions from lib.py to streamline data processing and analysis.
+   - ![Box Plot](screenshots/colab.png)
+
+2. **Data Loading**:
+   - **Function**: `read_data(filepath)`
+   - Loaded the dataset into a pandas DataFrame.
+   - **Output**: Displayed the first few rows to verify data structure.
+
+3. **Data Validation**:
+   - **Function**: `validate_dataframe(df, required_columns)`
+   - Checked for critical columns and non-empty data.
+   - **Output**: Ensured data integrity by raising errors if required columns were missing.
+
+4. **Descriptive Statistics Calculation**:
+   - **Function**: `get_descriptive_statistics(df)`
+   - Computed summary statistics for 'Net Worth (in billions)'.
+   - **Output**: Table summarizing mean, median, standard deviation, etc.
+
+5. **Grouping and Aggregation by Industry**:
+   - **Function**: `get_industry_avg_net_worth(df)`
+   - Calculated average net worth for each industry.
+   - **Output**: Table showing average net worth by industry.
+
+6. **Skewness and Kurtosis Calculation**:
+   - **Function**: `calculate_skewness_kurtosis(df)`
+   - Calculated skewness (asymmetry) and kurtosis (tailedness) for net worth.
+   - **Output**: Skewness and kurtosis values to assess distribution shape.
+
+7. **Data Visualization**:
+   - **Bar Plot of Average Net Worth by Industry**:
+     - **Function**: `plot_industry_avg_net_worth(industry_avg)`
+     - Displayed average net worth by industry in a bar plot.
+   - **Box Plot of Net Worth Distribution by Industry**:
+     - **Function**: `plot_net_worth_distribution_by_industry(df)`
+     - Showed wealth distribution within each industry using a box plot.
+
+8. **Analysis Summary**:
+   - Interpreted findings, noting average net worth and distribution characteristics.
+   - **Insights**:
+     - High average net worth in sectors like Telecommunications and Retail, with lower values in Fashion and Cosmetics.
+     - Mostly symmetrical wealth distribution, with some variance among industries.
 
 
-## Project Structure
+---
 
-- **Jupyter Notebook** (`src/individual_proj_1.ipynb`):
-  - Performs descriptive statistical analysis using Pandas.
-  - Tested using the `nbval` plugin for `pytest`.
-  
-- **Python Script** (`src/cli.py`):
-  - Reads the dataset, computes descriptive statistics, and groups the data by industry.
-  
-- **Shared Library** (`src/lib.py`):
-  - Contains reusable functions for data validation, reading data, calculating descriptive statistics, plotting, and calculating skewness/kurtosis.
-
-- **Test Scripts**:
-  - `tests/test_lib.py`: Contains unit tests for the shared library functions.
-  - `tests/test_script.py`: Contains tests for the CLI functions.
-  
-- **Dataset** (`src/Top_1000_wealthiest_people.csv`):
-  - A CSV file containing data about the 1000 wealthiest people, including their name, country, industry, net worth (in billions), and company.
-  - **Dataset source**: [Top 1000 Wealthiest People in the World - Kaggle](https://www.kaggle.com/datasets/muhammadehsan02/top-1000-wealthiest-people-in-the-world)
-
-
-## Makefile
-
-The project uses a `Makefile` to streamline development tasks, including testing, formatting, linting, and installing dependencies. Key Makefile commands:
-
-- **Test**: Runs tests for the notebook, script, and library.
-  ```bash
-  make test
-  ```
-  
-- **Format**: Formats all Python files using `black`.
-  ```bash
-  make format
-  ```
-
-- **Lint**: Checks the code quality using `Ruff`.
-  ```bash
-  make lint
-  ```
-
-- **Install**: Installs all required dependencies from `requirements.txt`.
-  ```bash
-  make install
-  ```
-
-- **All**: Runs all major tasks (`install`, `setup`, `lint`, `test`, and `format`) in one command.
-  ```bash
-  make all
-  ```
 
 ## Getting Started
 
@@ -100,19 +105,37 @@ To run all tests (for both the notebook and the scripts):
 make test
 ```
 
-### Linting and Formatting
+---
 
-To format the code using `black`, run:
+## Makefile
 
-```bash
-make format
-```
+The project uses a `Makefile` to streamline development tasks, including testing, formatting, linting, and installing dependencies. Key Makefile commands:
 
-To lint the code using `Ruff`, run:
+- **Test**: Runs tests for the notebook.
+  ```bash
+  make test
+  ```
+  
+- **Format**: Formats all Python files using `black`.
+  ```bash
+  make format
+  ```
 
-```bash
-make lint
-```
+- **Lint**: Checks the code quality using `Ruff`.
+  ```bash
+  make lint
+  ```
+
+- **Install**: Installs all required dependencies from `requirements.txt`.
+  ```bash
+  make install
+  ```
+
+- **All**: Runs all major tasks (`install`, `setup`, `lint`, `test`, and `format`) in one command.
+  ```bash
+  make all
+  ```
+
 
 ## Data Sample
 ![Data](screenshots/head.png)
