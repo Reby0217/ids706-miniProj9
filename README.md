@@ -12,17 +12,17 @@ This project demonstrates data manipulation tasks on a dataset of the 1000 wealt
 
 ## Deliverables
 
-### Cloud-Hosted Notebook <a href="https://colab.research.google.com/github/Reby0217/ids706-miniProj9/blob/main/src/colab_proj.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
-- **Link**: [Google Colab Notebook](https://colab.research.google.com/drive/1v6sNPN7wJbcJg73e6Op9bh9jjJ_No1zH)
+### Cloud-Hosted Notebook 
+- **Link**: [Google Colab Notebook](https://colab.research.google.com/drive/1v6sNPN7wJbcJg73e6Op9bh9jjJ_No1zH) <a href="https://colab.research.google.com/github/Reby0217/ids706-miniProj9/blob/main/src/colab_proj.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
 
-### Documented Tasks Performed
+### Data Manipulation Tasks Performed
 
 The following tasks were performed in the Google Colab notebook to analyze the dataset of the 1000 wealthiest people:
 
 1. **Environment Setup**:
    - Uploaded `cli.py`, `lib.py`, and `Top_1000_wealthiest_people.csv` to the Colab environment. This allows for immediate access to the dataset and custom functions without needing Google Drive.
    - Imported essential libraries and custom functions from lib.py to streamline data processing and analysis.
-   - ![Box Plot](screenshots/colab.png)
+   - ![Colab setup](screenshots/colab.png)
 
 2. **Data Loading**:
    - **Function**: `read_data(filepath)`
