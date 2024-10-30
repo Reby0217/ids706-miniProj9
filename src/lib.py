@@ -96,12 +96,17 @@ def plot_industry_avg_net_worth(industry_avg: pd.Series):
     if industry_avg.empty:
         raise ValueError("No data to plot for average net worth.")
 
+    # Generate a color palette with as many colors as there are industries
+    colors = sns.color_palette("husl", len(industry_avg))
+
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=industry_avg.index, y=industry_avg.values)
+    sns.barplot(x=industry_avg.index, y=industry_avg.values, palette=colors, hue=industry_avg.index)
+    plt.xlabel("Industry")
     plt.title("Average Net Worth by Industry")
     plt.xticks(rotation=90)
     plt.ylabel("Net Worth (in billions)")
     plt.show()
+
 
 
 def plot_net_worth_distribution_by_industry(df: pd.DataFrame):
@@ -112,10 +117,12 @@ def plot_net_worth_distribution_by_industry(df: pd.DataFrame):
     - df (pd.DataFrame): The dataset as a DataFrame.
     """
     validate_dataframe(df, ["Industry", "Net Worth (in billions)"])
+    colors = sns.color_palette("husl", len(df["Industry"].unique()))
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(x="Industry", y="Net Worth (in billions)", data=df)
+    sns.boxplot(x="Industry", y="Net Worth (in billions)", data=df, palette=colors, hue= df["Industry"])
     plt.title("Net Worth Distribution by Industry")
     plt.xticks(rotation=90)
     plt.ylabel("Net Worth (in billions)")
     plt.show()
+
