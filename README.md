@@ -1,5 +1,4 @@
 # IDS706 Cloud-Hosted Notebook Data Manipulation
-#### [Click Here to Watch the Demo Video on YouTube](https://youtu.be/gAqFlWD23B0)
 
 ## Continuous Integration with GitHub Actions
 [![Install](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/install.yml/badge.svg)](https://github.com/Reby0217/ids706-miniProj9/actions/workflows/install.yml)
