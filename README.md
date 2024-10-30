@@ -12,8 +12,8 @@ This project demonstrates data manipulation tasks on a dataset of the 1000 wealt
 
 ## Deliverables
 
-### Cloud-Hosted Notebook 
-- **Link**: [Google Colab Notebook](https://colab.research.google.com/drive/1v6sNPN7wJbcJg73e6Op9bh9jjJ_No1zH) <a href="https://colab.research.google.com/github/Reby0217/ids706-miniProj9/blob/main/src/colab_proj.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
+### Cloud-Hosted Notebook <a href="https://colab.research.google.com/github/Reby0217/ids706-miniProj9/blob/main/src/colab_proj.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+- **Link**: [Google Colab Notebook](https://colab.research.google.com/drive/1v6sNPN7wJbcJg73e6Op9bh9jjJ_No1zH)
 
 ### Data Manipulation Tasks Performed
 
